@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searcher.Tests", "Searcher.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searcher.DAL", "Searcher.DAL\Searcher.DAL.csproj", "{213FF45F-90AD-4051-8D4C-421829EA1D81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searcher.Core", "Searcher.Core\Searcher.Core.csproj", "{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{213FF45F-90AD-4051-8D4C-421829EA1D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{213FF45F-90AD-4051-8D4C-421829EA1D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{213FF45F-90AD-4051-8D4C-421829EA1D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

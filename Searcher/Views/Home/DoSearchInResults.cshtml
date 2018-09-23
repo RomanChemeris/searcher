@@ -1,0 +1,39 @@
+﻿@model Searcher.DAL.Entities.SearchRequest
+@{
+    ViewBag.Title = "Searcher - Результаты поиска";
+}
+
+<div class="row">
+    <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+        <nav class="bd-links">
+            <ul class="nav bd-sidenav">
+                <li>
+                    <a href="/">Главная</a>
+                    <a href="@Url.Action("SearchInResults")">Поиск по результатам</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+        <div class="col-lg-12 search-info-block">
+            <h2>Результаты поиска по сохраненным результатам</h2>
+        </div>
+        <div class="col-lg-12 pretty-search-box">
+            @Html.Partial("_SeachInResultsBox", new SearchModel { SearchText = Model.SearchText })
+        </div>
+        <div class="col-lg-12">
+            <ol class="search-results">
+                @if (Model.SearchResults != null)
+                {
+                    foreach (var item in Model.SearchResults)
+                    {
+                        <li>
+                            <a href="@item.Link" target="_blank">@item.LinkName</a>
+                        </li>
+                    }
+                }
+            </ol>
+        </div>
+    </main>
+</div>

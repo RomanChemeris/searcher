@@ -1,24 +1,92 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: 400px;
 }
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    padding: 0px;
+    z-index: 20;
 }
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    color: #777;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navbar-header {
+    float: left;
 }
+.sidebar {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    margin-top: 51px;
+}
+.searcher-main {
+    width: 100%;
+    height: 100%;
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.searcher-main > .inner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.searcher-main input[type=submit], .pretty-search-box input[type=submit] {
+    margin-top: -5px;
+}
+.searcher-main input[type=text], .pretty-search-box input[type=text] {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 2px solid #7952B3;
+    padding: 5px 10px;
+}
+*:focus {
+    outline: none;
+}
+.search-results {
+    padding-top: 25px;
+    padding-left: 25px;
+    float: left;
+}
+.search-info-block {
+    padding-bottom: 25px;
+}
+.search-results li {
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid coral;
+}
+.bd-sidebar {
+    border-right: 1px solid rgba(0,0,0,.1);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 320px;
+    flex: 0 1 320px
+}
+.bd-links {
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.bd-sidebar .nav>li>a {
+     display: block;
+     padding: .25rem 1.5rem;
+     font-size: 90%;
+     color: rgba(0,0,0,.65);
+ }

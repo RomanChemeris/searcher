@@ -1,0 +1,7 @@
+﻿@model Searcher.Models.SearchModel
+@using (Html.BeginForm("DoSearch", "Home", FormMethod.Get))
+{
+    @Html.TextBoxFor(x => x.SearchText)
+
+    <input type="submit" value="Искать" class="btn btn-primary" />
+}
