@@ -15,5 +15,7 @@ namespace Searcher.DAL.Entities
         public string LinkName { get; set; }
 
         public string Link { get; set; }
+
+        public SearchRequest SearchRequest { get; set; }
     }
 }

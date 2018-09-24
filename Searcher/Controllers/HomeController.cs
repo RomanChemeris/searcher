@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Searcher.Core;
+using Searcher.Core.Models;
 using Searcher.DAL.Entities;
 using Searcher.DAL.Services;
 using Searcher.Models;
@@ -27,7 +28,6 @@ namespace Searcher.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 5)]
         public async Task<ActionResult> DoSearch(SearchModel search)
         {
             var searchResult = SearchService.GetSearchResults(search.SearchText);
@@ -47,11 +47,10 @@ namespace Searcher.Controllers
             return View(searchResult);
         }
 
-        public ActionResult SearchInResults(SearchModel search)
+        public ActionResult SearchInResults()
         {
             return View();
         }
-
 
         public async Task<ActionResult> DoSearchInResults(SearchModel search)
         {

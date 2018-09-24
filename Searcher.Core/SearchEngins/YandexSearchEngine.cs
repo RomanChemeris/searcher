@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -16,8 +17,6 @@ namespace Searcher.Core.SearchEngins
 {
     public class YandexSearchEngine : ISearchEngine
     {
-        const string UrlWithKey = @"https://yandex.com/search/xml?l10n=ru&user=themeris&key=03.7812671:962258e4297415675458109dee831d08";
-
         public async Task<SearchEngineResult> DoSearch(string textToSearch)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
@@ -37,7 +36,7 @@ namespace Searcher.Core.SearchEngins
 
             byte[] bytes = Encoding.UTF8.GetBytes(command);
 
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(UrlWithKey);
+            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(@"https://yandex.com/search/xml?l10n=ru&user=" + ConfigurationManager.AppSettings["YandexUser"] + "&key=" + ConfigurationManager.AppSettings["YandexKey"]);
             request.Method = "POST";
             request.ContentLength = bytes.Length;
             request.ContentType = "text/xml";
@@ -51,7 +50,10 @@ namespace Searcher.Core.SearchEngins
             var responseStream = response.GetResponseStream();
             if (responseStream == null)
             {
-                return null;
+                return new SearchEngineResult
+                {
+                    EngineName = "Yandex - Error"
+                };
             }
             XmlReader xmlReader = XmlReader.Create(responseStream);
             XDocument xmlResponse = XDocument.Load(xmlReader);

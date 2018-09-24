@@ -5,25 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using Searcher.Core.Models;
 using Searcher.Core.SearchEngins;
+using Unity.Attributes;
 
 namespace Searcher.Core
 {
     public class SearchService : ISearchService
     {
-        public SearchEngineResult GetSearchResults(string searchStr)
-        {
-            SearchEngineResult result = null;
+        private List<ISearchEngine> Engines { get; set; }
 
-            var searchEngines = new List<ISearchEngine>
+        public SearchService(List<ISearchEngine> searchEngines)
+        {
+            Engines = searchEngines;
+        }
+
+        [InjectionConstructor]
+        public SearchService()
+        {
+            Engines = new List<ISearchEngine>
             {
                 new GoogleSearchEngine(),
                 new BingSearchEngine(),
                 new YandexSearchEngine()
             };
+        }
+
+        public SearchEngineResult GetSearchResults(string searchStr)
+        {
+            SearchEngineResult result = null;
 
             List<Task> searchTasks = new List<Task>();
 
-            foreach (var searchEngine in searchEngines)
+            foreach (var searchEngine in Engines)
             {
                 searchTasks.Add(Task.Run(async () => result = await searchEngine.DoSearch(searchStr)));
             }

@@ -101,9 +101,12 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\ContentServiceTests.cs" />
+    <Compile Include="CoreTests\SearchServiceTests.cs" />
+    <Compile Include="DatabaseTests\ContentServiceTests.cs" />
+    <Compile Include="Helpers\FakeHttpContext.cs" />
+    <Compile Include="Helpers\QueryableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="ControllerTests\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -112,6 +115,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Searcher.Core\Searcher.Core.csproj">
+      <Project>{AC3A5499-F6F7-459E-9C5A-C3E2D7F2A1C3}</Project>
+      <Name>Searcher.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Searcher.DAL\Searcher.DAL.csproj">
       <Project>{213FF45F-90AD-4051-8D4C-421829EA1D81}</Project>
       <Name>Searcher.DAL</Name>
@@ -121,6 +128,7 @@
       <Name>Searcher</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

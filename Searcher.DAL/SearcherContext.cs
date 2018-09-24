@@ -15,7 +15,7 @@ namespace Searcher.DAL
             Database.SetInitializer(new CreateDatabaseIfNotExists<SearcherContext>());
         }
 
-        public DbSet<SearchRequest> SearchRequests { get; set; }
-        public DbSet<SearchResult> SearchResults { get; set; }
+        public virtual IDbSet<SearchRequest> SearchRequests { get; set; }
+        public virtual IDbSet<SearchResult> SearchResults { get; set; }
     }
 }

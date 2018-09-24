@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -13,15 +14,12 @@ namespace Searcher.Core.SearchEngins
 {
     public class GoogleSearchEngine : ISearchEngine
     {
-        const string ApiKey = "AIzaSyBKUAUh7C47XcVP8lPxfnNOmQsnjJHHM8M";
-        const string SearchEngineId = "014860650480985424406:idqtrmeeocs";
-
         public async Task<SearchEngineResult> DoSearch(string textToSearch)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            var customSearchService = new CustomsearchService(new BaseClientService.Initializer { ApiKey = ApiKey });
+            var customSearchService = new CustomsearchService(new BaseClientService.Initializer { ApiKey = ConfigurationManager.AppSettings["GoogleApiKey"] });
             var listRequest = customSearchService.Cse.List(textToSearch);
-            listRequest.Cx = SearchEngineId;
+            listRequest.Cx = ConfigurationManager.AppSettings["GoogleSearchEngineId"];
             var resultItems = await listRequest.ExecuteAsync();
             stopwatch.Stop();
 
