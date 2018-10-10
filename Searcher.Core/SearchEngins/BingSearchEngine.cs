@@ -23,7 +23,7 @@ namespace Searcher.Core.SearchEngins
         public async Task<SearchEngineResult> DoSearch(string textToSearch)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            var uriQuery = UriBase + "?q=" + Uri.EscapeDataString(textToSearch);
+            var uriQuery = UriBase + "?count=10&q=" + Uri.EscapeDataString(textToSearch);
 
             WebRequest request = WebRequest.Create(uriQuery);
             request.Headers["Ocp-Apim-Subscription-Key"] = ConfigurationManager.AppSettings["BingAccessKey"];

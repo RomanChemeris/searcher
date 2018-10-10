@@ -29,7 +29,7 @@ namespace Searcher.Core.SearchEngins
                 <groupings>
                 <groupby attr=""d"" 
                     mode=""deep"" 
-                    groups-on-page=""10"" 
+                    groups-on-page=""11"" 
                     docs-in-group=""1"" />   
                 </groupings>   
             </request>";
